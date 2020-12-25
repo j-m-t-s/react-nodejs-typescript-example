@@ -49,12 +49,12 @@ const CreateUserForm: React.FC<Props> = ({ createUser }) => {
                             </div>
                         </div>
                         <button type="button" onClick={(e) => {
-                                createUser(user as User);
-                                setAmountCreated(amountCreated => amountCreated + 1)
-                            
+                            createUser(user as User);
+                            setAmountCreated(amountCreated => amountCreated + 1)
+
                         }} className="btn btn-danger">Create</button>
                     </form>
-                        {`${amountCreated} users have been created in this session`}
+                    {`${amountCreated} users have been created in this session`}
                 </div>
             </div>
         </div>
