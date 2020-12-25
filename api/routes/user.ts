@@ -2,13 +2,19 @@ import * as bodyParser from "body-parser";
 import * as express from "express";
 import { Logger } from "../logger/logger";
 
+interface IUser {
+    firstName: string;
+    lastName: string;
+    email:string;
+}
+
 class User {
 
     public express: express.Application;
     public logger: Logger;
 
     // array to hold users
-    public users: any[];
+    public users: IUser[];
 
     constructor() {
         this.express = express();
