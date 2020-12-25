@@ -2,11 +2,7 @@ import * as bodyParser from "body-parser";
 import * as express from "express";
 import { Logger } from "../logger/logger";
 
-interface IUser {
-    firstName: string;
-    lastName: string;
-    email:string;
-}
+
 
 class User {
 
@@ -14,7 +10,7 @@ class User {
     public logger: Logger;
 
     // array to hold users
-    public users: IUser[];
+    public users: any[];
 
     constructor() {
         this.express = express();
@@ -41,7 +37,7 @@ class User {
         // request to get all the users by userName
         this.express.get("/users/:userName", (req, res, next) => {
             this.logger.info("url:::::" + req.url);
-            const user = this.users.filter(function(user) {
+            const user = this.users.filter(function (user) {
                 if (req.params.userName === user.userName) {
                     return user;
                 }

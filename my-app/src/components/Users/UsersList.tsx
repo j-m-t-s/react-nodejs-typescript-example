@@ -1,11 +1,15 @@
 import React from 'react'
+import { User } from '../../types'
 
-export const Users = ({users}) => {
+interface Props {
+    users: User[]
+}
 
-    console.log('users length:::', users.length)
-    if (users.length === 0) return null
+const UsersList: React.FC<Props> = ({users}) => {
 
-    const UserRow = (user,index) => {
+    if (!users || users.length === 0) return null
+
+    const UserRow = (user: User,index: number) => {
 
         return(
               <tr key = {index} className={index%2 === 0?'odd':'even'}>
@@ -38,3 +42,5 @@ export const Users = ({users}) => {
         </div>
     )
 }
+
+export default UsersList;
