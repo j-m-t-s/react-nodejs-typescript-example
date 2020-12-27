@@ -1,8 +1,8 @@
 import * as bodyParser from "body-parser";
 import * as express from "express";
 import { Logger } from "../logger/logger";
-import {  sequelize } from "../database/models";
-import { Sequelize } from "sequelize/types";
+import { sequelize } from "../database/models";
+import { Sequelize } from "sequelize";
 
 
 

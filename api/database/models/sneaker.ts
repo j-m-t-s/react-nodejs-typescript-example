@@ -1,5 +1,5 @@
 
-import { DataTypes, Model } from "sequelize/types";
+import { DataTypes, Model } from "sequelize";
 import { sequelize, Sequelize } from ".";
 
 export class Sneaker extends Model {
