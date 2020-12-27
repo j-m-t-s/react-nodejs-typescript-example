@@ -3,6 +3,7 @@ import * as express from "express";
 import { Logger } from "../logger/logger";
 import { sequelize } from "../database/models";
 import { Sequelize } from "sequelize";
+import { Sneaker } from "../database/models/sneaker";
 
 
 
@@ -48,6 +49,7 @@ class User {
                     return user;
                 }
             });
+
             res.json(user);
         });
 
@@ -56,6 +58,7 @@ class User {
         this.express.post("/user", (req, res, next) => {
             this.logger.info("url:::::::" + req.url);
             this.users.push(req.body.user);
+        //    const newSneaker =  Sneaker.create()
             res.json(this.users);
         });
     }
