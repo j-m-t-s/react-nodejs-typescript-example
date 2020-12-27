@@ -1,13 +1,16 @@
 import * as bodyParser from "body-parser";
 import * as express from "express";
+import { Sequelize } from "sequelize/types";
 import { Logger } from "./logger/logger";
 import Routes from "./routes/routes";
+import {sequelize} from "./database/models";
 const path = require('path');
 
 class App {
 
     public express: express.Application;
     public logger: Logger;
+    public db: Sequelize;
 
     // array to hold users
     public users: any[];
@@ -18,6 +21,8 @@ class App {
         this.routes();
         this.users = [];
         this.logger = new Logger();
+        this.db = sequelize;
+        this.logger.info("App initialized");
     }
 
     // Configure Express middleware.

@@ -1,5 +1,7 @@
 import * as bodyParser from "body-parser";
 import * as express from "express";
+import { Sequelize } from "sequelize/types";
+import { sequelize } from "../database/models";
 import { Logger } from "../logger/logger";
 import User from "./user";
 
@@ -7,15 +9,17 @@ class Routes {
 
     public express: express.Application;
     public logger: Logger;
+    //public db: Sequelize;
 
-    // array to hold users
-    public users: any[];
+
 
     constructor() {
         this.express = express();
         this.middleware();
         this.routes();
         this.logger = new Logger();
+        //this.db = sequelize;
+        //this.logger.info("App initialized");
     }
 
     // Configure Express middleware.
