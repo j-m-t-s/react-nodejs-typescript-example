@@ -93,7 +93,7 @@ module.exports = (sequelize, DataTypes) => {
         dateCreated: DataTypes.DATE,
     }, {
         sequelize,
-        modelName: 'userSneaker',
+        modelName: 'UserSneaker',
     })
     return UserSneaker;
 }

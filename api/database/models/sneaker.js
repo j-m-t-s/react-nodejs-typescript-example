@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       primaryKey: true,
     },
-    name: {
+    title: {
       type: new DataTypes.STRING(128),
       allowNull: false,
     },
@@ -41,10 +41,14 @@ module.exports = (sequelize, DataTypes) => {
     imageUrl: {
       type: new DataTypes.STRING(128),
       allowNull: true,
+    },
+    dateCreated: {
+      type: new DataTypes.DATE,
+      allowNull: true,
     }
   }, {
     sequelize,
-    modelName: 'sneaker',
+    modelName: 'Sneaker',
   })
   return Sneaker;
 }

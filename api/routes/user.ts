@@ -60,7 +60,7 @@ class User {
             this.logger.info("url:::::::" + req.url);
             this.users.push(req.body.user);
 
-            const result = await models.sneaker.create({ name: "abc" });
+            const result = await models.Sneaker.create({ name: "abc" });
             //    const newSneaker =  Sneaker.create()
             res.json(this.users);
         });
