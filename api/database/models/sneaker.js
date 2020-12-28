@@ -1,0 +1,50 @@
+'use strict';
+const {
+  Model
+} = require('sequelize');
+// @ts-ignore
+module.exports = (sequelize, DataTypes) => {
+  // todo: re-type this
+  // class Sneaker extends Model {
+  //   public id!: number;
+  //   public title!: string;
+  //   public description: string;
+  //   public imageUrl: string;
+
+  //   public readonly createdAt!: Date;
+  // }
+
+  class Sneaker extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+    }
+  };
+  Sneaker.init({
+    id: {
+      type: DataTypes.INTEGER.UNSIGNED, // you can omit the `new` but this is discouraged
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    name: {
+      type: new DataTypes.STRING(128),
+      allowNull: false,
+    },
+    description: {
+      type: new DataTypes.STRING(128),
+      allowNull: true,
+    },
+    imageUrl: {
+      type: new DataTypes.STRING(128),
+      allowNull: true,
+    }
+  }, {
+    sequelize,
+    modelName: 'sneaker',
+  })
+  return Sneaker;
+}
