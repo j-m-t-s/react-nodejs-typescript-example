@@ -9,7 +9,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "tslint": "tslint --project tsconfig.json --config tslint.json",
     "tslint-fix": "tslint --project tsconfig.json --config tslint.json --fix",
-    "build": "webpack"
+    "build": "webpack",
+    "migrate-up": "cd database && npx sequelize-cli db:migrate",
+    "migrate-down": "cd database && npx sequelize-cli db:migrate:undo",
+    "migration-generate":"cd database && sequelize migration:generate --name "
   },
   "keywords": [],
   "author": "Bhargav Bachina",
