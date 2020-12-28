@@ -68,7 +68,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: 'Sneakers', key: 'id' }
       },
-      email: {
+      userDescription: {
         type: Sequelize.STRING
       },
       createdAt: {
