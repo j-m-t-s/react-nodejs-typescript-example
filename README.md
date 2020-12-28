@@ -12,3 +12,5 @@ Up: npx sequelize-cli db:migrate
 Down: npx sequelize-cli db:migrate:undo
 
 TO DEBUG: F1- Debug: Toggle Auto Attach - set to true, and then CLOSE AND REOPEN TERMINAL
+
+IDEA: AUTOMATICALLY ENTER SNEAKERS BASED ON EMAILS RECEIVED, OR SOMETHING LIKE THAT. Could import all emails and then track it. summarize all the confirmation emails automatically
