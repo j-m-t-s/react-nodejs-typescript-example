@@ -60,10 +60,8 @@ class User {
             this.logger.info("url:::::::" + req.url);
             this.users.push(req.body.user);
             const newSneaker: Sneaker = {
-                description: " New new",
-                title: "yeezylol",
-                id: 1
-
+                description: " New newnew",
+                title: "yeezylol2"
             }
 
             const result = await models.Sneaker.create(newSneaker);

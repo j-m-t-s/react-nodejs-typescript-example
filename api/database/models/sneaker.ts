@@ -5,9 +5,10 @@ const {
 
 
 export class Sneaker extends Model {
-  id!: number;
   title!: string;
   description?: string;
+  /** Should be generated autoMAGICALLY huehue */
+  id?: number;
   imageUrl?: string;
   dateCreated?: Date;
   /**
