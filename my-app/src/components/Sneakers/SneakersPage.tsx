@@ -2,11 +2,11 @@ import React, { useState } from "react"
 import { createUser } from "../../services/UserService"
 import { User } from "../../types"
 import { Header } from "../Header"
-import UsersList from "./UsersList"
-import CreateUserForm from "./CreateUserForm"
+import UsersList from "./SneakersList"
+import CreateUserForm from "./CreateSneakerForm"
 import { DisplayBoard } from "./DisplayBoard"
 
-export const UsersPage: React.FC = () => {
+export const SneakersPage: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const createUserRequest = (user: User) => {
     createUser(user)

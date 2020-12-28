@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createUser } from "../../services/UserService";
 import { User } from "../../types";
-import CreateUserForm from "./CreateUserForm";
+import CreateUserForm from "./CreateSneakerForm";
 import { DisplayBoard } from "./DisplayBoard";
 
 interface Props {

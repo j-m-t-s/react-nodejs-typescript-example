@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { UsersPage } from './components/Users/UsersPage';
+import { SneakersPage } from './components/Sneakers/SneakersPage';
 
 class App extends Component {
 
@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <div className="App">
         <div>stuff goes here</div>
-        <UsersPage />
+        <SneakersPage />
       </div>
     );
   }
