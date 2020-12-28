@@ -19,11 +19,11 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      dateCreated: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      dateUpdated: {
+      updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
       }
@@ -41,13 +41,17 @@ module.exports = {
       title: {
         type: Sequelize.STRING
       },
-      imageURL: {
+      imageUrl: {
         type: Sequelize.STRING
       },
-      dateCreated: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      }
     });
     await queryInterface.createTable('UserSneakers', {
       id: {
@@ -79,6 +83,8 @@ module.exports = {
 
   },
   down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('UserSneakers');
     await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('Sneakers');
   }
 };
