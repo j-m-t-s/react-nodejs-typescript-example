@@ -4,7 +4,7 @@ import { Sequelize } from "sequelize";
 import { Logger } from "./logger/logger";
 import Routes from "./routes/routes";
 import { sequelize } from "./database/models";
-import { initModels } from "./database/models/init";
+// import { initModels } from "./database/models/init";
 const path = require('path');
 
 class App {
@@ -24,7 +24,7 @@ class App {
         this.logger = new Logger();
         this.db = sequelize;
         this.logger.info("App initialized");
-        initModels(this.db);
+        // initModels(this.db);
     }
 
     // Configure Express middleware.

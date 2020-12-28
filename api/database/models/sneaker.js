@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Sneaker.init({
     id: {
-      type: DataTypes.INTEGER.UNSIGNED, // you can omit the `new` but this is discouraged
+      type: new DataTypes.INTEGER, // you can omit the `new` but this is discouraged
       autoIncrement: true,
       primaryKey: true,
     },
