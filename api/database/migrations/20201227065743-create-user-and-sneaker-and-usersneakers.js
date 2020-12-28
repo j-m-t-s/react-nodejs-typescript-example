@@ -24,7 +24,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       }
     });
@@ -49,7 +49,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       }
     });
@@ -76,10 +76,19 @@ module.exports = {
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       }
     });
+
+
+    return queryInterface.bulkInsert('Users', [{
+      password: "tempnotsalted",
+      salt: "salt",
+      email: "Jack@jack.jack",
+      createdAt: "now",
+      updatedAt: null
+    }]);
 
   },
   down: async (queryInterface, Sequelize) => {
