@@ -35,10 +35,10 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true,
         },
-        sneakerId: {
-            type: DataTypes.INTEGER.UNSIGNED,
-            allowNull: false,
-        },
+        // sneakerId: {
+        //     type: DataTypes.INTEGER.UNSIGNED,
+        //     allowNull: false,
+        // },
         userId: {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
@@ -57,19 +57,20 @@ module.exports = (sequelize, DataTypes) => {
         modelName: 'UserSneaker',
     })
 
-    // //@ts-ignore
-    // UserSneaker.associate = (models) => {
-    //     UserSneaker.hasOne(models.Sneaker, {
-    //         foreignKey: 'id',
-    //         as: 'sneakerId',
-    //         onDelete: 'CASCADE',
-    //     });
-    //     UserSneaker.hasOne(models.User, {
-    //         foreignKey: 'id',
-    //         as: 'userId',
-    //         onDelete: 'CASCADE',
-    //     });
-    // }
+    //@ts-ignore
+    UserSneaker.associate = (models) => {
+        // UserSneaker.belongsTo(models.Sneaker, { as: 'sneakerId' });
+        // UserSneaker.hasOne(models.Sneaker, {
+        //     foreignKey: 'id',
+        //     as: 'sneakerId',
+        //     onDelete: 'CASCADE',
+        // });
+        // UserSneaker.hasOne(models.User, {
+        //     foreignKey: 'id',
+        //     as: 'userId',
+        //     onDelete: 'CASCADE',
+        // });
+    }
 
     return UserSneaker;
 }

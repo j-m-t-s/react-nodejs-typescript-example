@@ -38,9 +38,18 @@ class User {
     private routes(): void {
 
         // request to get all the users
-        this.express.get("/users", (req, res, next) => {
-            this.logger.info("url:" + req.url);
-            res.json(this.users);
+        this.express.get("/users", async (req, res, next) => {
+            const user = await models.User.findOne({});
+            if (user === null) {
+                this.logger.error("Unable to find user to retrieve sneakers")
+            }
+            const sneakers: UserSneaker[] = await models.UserSneaker.findAll({
+                where: { userId: user.id },
+                include: Sneaker
+            })
+            const joinedSneakers = sneakers.map(s => s.Sneaker);
+
+            res.json(sneakers);
         });
 
         // request to get all the users by userName
