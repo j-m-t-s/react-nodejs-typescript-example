@@ -60,6 +60,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      size: { type: Sequelize.STRING },
       userId: {
         type: Sequelize.INTEGER,
         references: { model: 'Users', key: 'id' }
@@ -69,6 +70,7 @@ module.exports = {
         references: { model: 'Sneakers', key: 'id' }
       },
       userDescription: {
+        allowNull: true,
         type: Sequelize.STRING
       },
       createdAt: {
