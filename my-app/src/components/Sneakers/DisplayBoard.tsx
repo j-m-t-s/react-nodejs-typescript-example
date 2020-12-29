@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { getAllUsers } from '../../services/UserService';
-import { User } from '../../types';
+import { UserSneaker } from '../../types';
 
 interface Props {
-    users: User[];
-    setUsers: (newUsers: User[]) => void;
+    users: UserSneaker[];
+    setUsers: (newUsers: UserSneaker[]) => void;
 }
 
 export const DisplayBoard: React.FC<Props> = ({ users, setUsers }) => {

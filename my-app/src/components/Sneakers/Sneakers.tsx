@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createUser } from "../../services/UserService";
-import { User } from "../../types";
+import { UserSneaker } from "../../types";
 import CreateUserForm from "./CreateSneakerForm";
 import { DisplayBoard } from "./DisplayBoard";
 
@@ -12,8 +12,8 @@ interface Props {
 
 export const Users: React.FC<Props> = ({numberOfUsers, setNumberOfUsers}) => {
 
-  const  createUserRequest = (user: User) => {
-        createUser(user)
+  const  createUserRequest = (sneaker: UserSneaker) => {
+        createUser(sneaker)
           .then(response => {
             console.log(response);
             setNumberOfUsers(numberOfUsers + 1)

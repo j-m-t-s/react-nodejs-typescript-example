@@ -1,5 +1,5 @@
-export interface User {
-    firstName: string;
-    lastName: string;
-    email: string;
+export interface UserSneaker {
+    title: string;
+    userDescription?: string;
+    size: string;
 }

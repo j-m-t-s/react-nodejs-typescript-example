@@ -1,14 +1,14 @@
 import React, { useState } from "react"
 import { createUser } from "../../services/UserService"
-import { User } from "../../types"
+import { UserSneaker } from "../../types"
 import { Header } from "../Header"
 import UsersList from "./SneakersList"
 import CreateUserForm from "./CreateSneakerForm"
 import { DisplayBoard } from "./DisplayBoard"
 
 export const SneakersPage: React.FC = () => {
-  const [users, setUsers] = useState<User[]>([]);
-  const createUserRequest = (user: User) => {
+  const [users, setUsers] = useState<UserSneaker[]>([]);
+  const createUserSneakerRequest = (user: UserSneaker) => {
     createUser(user)
       .then(response => {
         console.log(response);
@@ -21,7 +21,7 @@ export const SneakersPage: React.FC = () => {
       <div className="row">
         <div className="col-md-8">
           <CreateUserForm
-            createUser={createUserRequest}
+            createUser={createUserSneakerRequest}
             users={users}
           >
           </CreateUserForm>
