@@ -4,6 +4,7 @@ import { Logger } from "../logger/logger";
 import { sequelize } from "../database/models";
 import { Sequelize } from "sequelize";
 import { Sneaker } from "../database/models/sneaker";
+import { UserSneaker } from "../database/models/userSneaker";
 const models = require("../database/models");
 
 
@@ -58,13 +59,15 @@ class User {
         // req.body has object of type {firstName:"fnam1",lastName:"lnam1",userName:"username1"}
         this.express.post("/user", async (req, res, next) => {
             this.logger.info("url:::::::" + req.url);
-            this.users.push(req.body.user);
-            const newSneaker: Sneaker = {
-                description: " New newnew",
-                title: "yeezylol2"
+            this.users.push(req.body.sneaker);
+            const { size, userDescription, title } = req.body.sneaker;
+            const newSneaker: UserSneaker = {
+                description: userDescription,
+                title: title,
+                size: size
             }
 
-            const result = await models.Sneaker.create(newSneaker);
+            const result = await models.UserSneaker.create(newSneaker);
             //    const newSneaker =  Sneaker.create()
             res.json(this.users);
         });

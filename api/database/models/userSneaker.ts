@@ -13,6 +13,7 @@ export class UserSneaker extends Model {
     userId?: number;
     createdAt?: Date;
     updatedAt?: Date;
+    size: string;
 
     /**
      * Helper method for defining associations.
@@ -48,6 +49,9 @@ module.exports = (sequelize, DataTypes) => {
             type: new DataTypes.STRING(128),
             allowNull: true,
         },
+        size:{
+            type: DataTypes.STRING(128)
+        }
     }, {
         sequelize,
         modelName: 'UserSneaker',
