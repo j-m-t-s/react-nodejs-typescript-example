@@ -18,14 +18,23 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.NUMBER,
       primaryKey: true
     },
-    pasword: DataTypes.STRING,
+    password: DataTypes.STRING,
     salt: DataTypes.STRING,
-    dateCreated: DataTypes.DATE,
-    dateUpdated: DataTypes.STRING,
+    createdAt: DataTypes.DATE,
+    updatedAt: DataTypes.STRING,
     email: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'User',
   });
+
+  // @ts-ignore
+  User.associate = (models) => {
+    User.hasMany(models.UserSneaker, {
+      foreignKey: 'userId',
+      as: 'sneakers',
+      onDelete: 'CASCADE',
+    });
+  }
   return User;
 };

@@ -20,15 +20,15 @@ export class UserSneaker extends Model {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    //@ts-ignore
-    static associate(models) {
-        // define association here
-    }
+    // //@ts-ignore
+    // static associate(models) {
+    //     this.belongsTo
+    // }
 };
+
 
 // @ts-ignore
 module.exports = (sequelize, DataTypes) => {
-
     UserSneaker.init({
         id: {
             type: DataTypes.INTEGER.UNSIGNED, // you can omit the `new` but this is discouraged
@@ -49,12 +49,27 @@ module.exports = (sequelize, DataTypes) => {
             type: new DataTypes.STRING(128),
             allowNull: true,
         },
-        size:{
+        size: {
             type: DataTypes.STRING(128)
         }
     }, {
         sequelize,
         modelName: 'UserSneaker',
     })
+
+    // //@ts-ignore
+    // UserSneaker.associate = (models) => {
+    //     UserSneaker.hasOne(models.Sneaker, {
+    //         foreignKey: 'id',
+    //         as: 'sneakerId',
+    //         onDelete: 'CASCADE',
+    //     });
+    //     UserSneaker.hasOne(models.User, {
+    //         foreignKey: 'id',
+    //         as: 'userId',
+    //         onDelete: 'CASCADE',
+    //     });
+    // }
+
     return UserSneaker;
 }

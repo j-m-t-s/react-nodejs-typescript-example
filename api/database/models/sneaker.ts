@@ -10,16 +10,17 @@ export class Sneaker extends Model {
   /** Should be generated autoMAGICALLY huehue */
   id?: number;
   imageUrl?: string;
-  dateCreated?: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
   /**
    * Helper method for defining associations.
    * This method is not a part of Sequelize lifecycle.
    * The `models/index` file will call this method automatically.
    */
   // @ts-ignore
-  static associate(models) {
-    // define association here
-  }
+  // static associate(models) {
+  //   // define association here
+  // }
 };
 
 // @ts-ignore
@@ -65,5 +66,29 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Sneaker',
   })
+
+
+  // UserSneaker.associate = (models) => {
+  //     UserSneaker.hasOne(models.Sneaker, {
+  //         foreignKey: 'id',
+  //         as: 'sneakerId',
+  //         onDelete: 'CASCADE',
+  //     });
+  //     UserSneaker.hasOne(models.User, {
+  //         foreignKey: 'id',
+  //         as: 'userId',
+  //         onDelete: 'CASCADE',
+  //     });
+  // }
+
+  // @ts-ignore
+  Sneaker.associate = (models) => {
+    Sneaker.hasMany(models.UserSneaker, {
+      foreignKey: 'sneakerId',
+      as: 'sneakers',
+      onDelete: 'CASCADE',
+    });
+  }
+
   return Sneaker;
 }
