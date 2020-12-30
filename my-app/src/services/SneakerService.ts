@@ -1,14 +1,12 @@
 import { UserSneaker } from "../types";
 
-export async function getAllUsers() {
-
-    const response = await fetch('/api/users');
+export async function getAllUserSneakers() {
+    const response = await fetch('/api/sneakers');
     return await response.json();
 }
 
-export async function createUser(sneaker: UserSneaker) {
-    console.log("sneaker", sneaker);
-    const response = await fetch(`/api/user`, {
+export async function createUserSneaker(sneaker: UserSneaker) {
+    const response = await fetch(`/api/sneakers`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sneaker })

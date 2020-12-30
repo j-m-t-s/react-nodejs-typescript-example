@@ -9,10 +9,10 @@ interface SneakerForm {
 
 interface Props {
     users: UserSneaker[];
-    createUser: (user: UserSneaker) => void;
+    createUserSneaker: (user: UserSneaker) => void;
 }
 
-const CreateUserForm: React.FC<Props> = ({ createUser }) => {
+const CreateUserSneakerForm: React.FC<Props> = ({ createUserSneaker }) => {
 
     const [amountCreated, setAmountCreated] = useState(0);
     const [sneaker, setSneaker] = useState<SneakerForm>({
@@ -21,8 +21,6 @@ const CreateUserForm: React.FC<Props> = ({ createUser }) => {
         size: ""
     });
 
-
-    console.log("current sneaker", sneaker);
     return (
         <div className="container">
             <div className="row">
@@ -58,7 +56,7 @@ const CreateUserForm: React.FC<Props> = ({ createUser }) => {
                         }} placeholder="Size" />
                     </div>
                     <button type="button" onClick={(e) => {
-                        createUser(sneaker as UserSneaker);
+                        createUserSneaker(sneaker as UserSneaker);
                         setAmountCreated(amountCreated => amountCreated + 1)
 
                     }} className="btn btn-danger">Create</button>
@@ -69,4 +67,4 @@ const CreateUserForm: React.FC<Props> = ({ createUser }) => {
     )
 }
 
-export default CreateUserForm
+export default CreateUserSneakerForm

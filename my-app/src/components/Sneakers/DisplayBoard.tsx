@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { getAllUsers } from '../../services/UserService';
+import { getAllUserSneakers } from '../../services/SneakerService';
 import { UserSneaker } from '../../types';
 
 interface Props {
@@ -10,8 +10,8 @@ interface Props {
 export const DisplayBoard: React.FC<Props> = ({ users, setUsers }) => {
 
 
-    const populateUserRows = () => {
-        getAllUsers()
+    const populateUserSneakerRows = () => {
+        getAllUserSneakers()
             .then(users => {
                 console.log(users)
                 setUsers(users)
@@ -26,7 +26,7 @@ export const DisplayBoard: React.FC<Props> = ({ users, setUsers }) => {
                 {users.length}
             </div>
             <div className="btn">
-                <button type="button" onClick={(e) => populateUserRows()} className="btn btn-warning">Get all Users</button>
+                <button type="button" onClick={(e) => populateUserSneakerRows()} className="btn btn-warning">Get all Users</button>
             </div>
         </div>
     )

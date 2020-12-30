@@ -1,8 +1,8 @@
 import * as express from "express";
-import User from "./user";
+import sneakerRouter from "./sneaker";
 
 
-const defaultRouter = express.Router();
-defaultRouter.use('/users', User);
+const routes = express.Router();
+routes.use('/sneakers', sneakerRouter);
 
-export default defaultRouter;
+export default routes;
