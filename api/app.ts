@@ -2,7 +2,7 @@ import * as bodyParser from "body-parser";
 import * as express from "express";
 import { Sequelize } from "sequelize";
 import { Logger } from "./logger/logger";
-import Routes from "./routes/routes";
+import Routes from "./routes";
 import { sequelize } from "./database/models";
 // import { initModels } from "./database/models/init";
 const path = require('path');
@@ -35,7 +35,7 @@ class App {
     }
 
     private routes(): void {
-
+        
         this.express.get("/", (req, res, next) => {
             res.sendFile(process.cwd() + "/my-app/build/index.html");
         });
@@ -44,7 +44,7 @@ class App {
         this.express.use("/api", Routes);
 
         // handle undefined routes
-        this.express.use("*", (req, res, next) => {
+        this.express.use((req, res, next) => {
             res.send("Make sure url is correct!!!");
         });
     }
