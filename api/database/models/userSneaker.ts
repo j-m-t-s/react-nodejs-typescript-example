@@ -35,10 +35,10 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true,
         },
-        // sneakerId: {
-        //     type: DataTypes.INTEGER.UNSIGNED,
-        //     allowNull: false,
-        // },
+        sneakerId: {
+            type: DataTypes.INTEGER.UNSIGNED,
+            allowNull: false,
+        },
         userId: {
             type: DataTypes.INTEGER.UNSIGNED,
             allowNull: false,
@@ -59,7 +59,7 @@ module.exports = (sequelize, DataTypes) => {
 
     //@ts-ignore
     UserSneaker.associate = (models) => {
-        // UserSneaker.belongsTo(models.Sneaker, { as: 'sneakerId' });
+        UserSneaker.belongsTo(models.Sneaker, { as: 'sneaker', foreignkey: 'sneakerId' });
         // UserSneaker.hasOne(models.Sneaker, {
         //     foreignKey: 'id',
         //     as: 'sneakerId',

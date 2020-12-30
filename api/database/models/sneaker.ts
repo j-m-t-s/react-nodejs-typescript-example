@@ -85,7 +85,7 @@ module.exports = (sequelize, DataTypes) => {
   Sneaker.associate = (models) => {
     Sneaker.hasMany(models.UserSneaker, {
       foreignKey: 'sneakerId',
-      as: 'sneakers',
+      as: 'userSneakers',
       onDelete: 'CASCADE',
     });
   }

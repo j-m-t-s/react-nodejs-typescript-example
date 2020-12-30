@@ -45,9 +45,13 @@ class User {
             }
             const sneakers: UserSneaker[] = await models.UserSneaker.findAll({
                 where: { userId: user.id },
-                include: Sneaker
+                include:  [
+                    {
+                      model: models.Sneaker,
+                      as: "sneaker"
+                    }]
             })
-            const joinedSneakers = sneakers.map(s => s.Sneaker);
+            const joinedSneakers = sneakers.map(s => s.sneaker);
 
             res.json(sneakers);
         });
