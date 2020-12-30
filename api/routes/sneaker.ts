@@ -30,6 +30,7 @@ sneakerRouter.post("/", async (req, res, next) => {
         sneaker = {
             title
         }
+        // re-assign so we can use the id 
         sneaker = await models.Sneaker.create(sneaker);
     }
     const user = await models.User.findOne({});
