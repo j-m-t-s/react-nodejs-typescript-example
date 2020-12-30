@@ -1,6 +1,7 @@
 import * as express from "express";
 import { Sneaker } from "../database/models/sneaker";
 import { UserSneaker } from "../database/models/userSneaker";
+import { UserSneakerDTO } from "../dtos/UserSneakerDTO";
 const models = require("../database/models");
 
 const sneakerRouter = express.Router();
@@ -18,9 +19,8 @@ sneakerRouter.get("/", async (req, res, next) => {
                 as: "sneaker"
             }]
     })
-    const joinedSneakers = sneakers.map(s => s.sneaker);
-
-    res.json(sneakers);
+    const dtos = sneakers.map(s => new UserSneakerDTO(s, s.sneaker))
+    res.json(dtos);
 });
 
 sneakerRouter.post("/", async (req, res, next) => {
@@ -30,7 +30,7 @@ sneakerRouter.post("/", async (req, res, next) => {
         sneaker = {
             title
         }
-        await models.Sneaker.create(sneaker);
+        sneaker = await models.Sneaker.create(sneaker);
     }
     const user = await models.User.findOne({});
     const newUserSneaker: UserSneaker = {
@@ -41,7 +41,6 @@ sneakerRouter.post("/", async (req, res, next) => {
         sneakerId: sneaker.id
     }
     await models.UserSneaker.create(newUserSneaker);
-    //    const newSneaker =  Sneaker.create()
     res.json(newUserSneaker);
 });
 
